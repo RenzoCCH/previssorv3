@@ -1,0 +1,36 @@
+//colors
+$white: white;
+$lighGray: #f3f2ef;
+$gray: #7b8fa1;
+
+$bgColor: $white;
+
+$primaryColorL: #508fd0;
+$primaryColor: #2c74b3;
+$primaryColorD: #205295;
+$primaryColorDD: #0a2647;
+
+$secondaryColorL: #b3e8e5;
+$secondaryColor: #82dbd8;
+$secondaryColorD: #3bacb6;
+$secondaryColorDD: #2f8f9d;
+
+$dangerColor: #eb455f;
+$dangerColorD: #d61c4e;
+
+$grayFontColor: #476072;
+
+$transparentLightBg: rgb(44, 116, 179, 0.1);
+$transparentDarkBg: rgb(44, 116, 179, 0.9);
+$transparentRedBg: rgb(235, 69, 95, 0.9);
+
+$buttonColor: $primaryColor;
+$buttonColorHover: $primaryColorD;
+$buttonColorPressed: $primaryColorDD;
+
+$secondaryButtonColor: $secondaryColorD;
+$secondaryButtonColorHover: $secondaryColorDD;
+$secondaryButtonColorPressed: $secondaryColorDD;
+
+//shadow
+$shadowColor: #888888;

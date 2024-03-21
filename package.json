@@ -28,6 +28,7 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
+    "sass": "^1.72.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
@@ -35,10 +36,9 @@
     "node": "21.7.1"
   },
   "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown",
     "**/*.{ts,tsx,js,jsx}": [
-      "npm run prettier",
-      "npm run lint",
-      "git add"
+      "npm run lint"
     ]
   }
 }

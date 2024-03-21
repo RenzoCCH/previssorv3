@@ -1,0 +1,116 @@
+@mixin into-xxxs($property: jx, $value: 0) {
+  @media (max-width: ($screen-xxs)) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin into-xxs($property: jx, $value: 0) {
+  @media (min-width: $screen-xxs) and (max-width: $screen-xxs-max) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin into-xs($property: jx, $value: 0) {
+  @media (min-width: $screen-xs) and (max-width: $screen-xs-max) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin into-sm($property: jx, $value: 0) {
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin into-md($property: jx, $value: 0) {
+  @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin into-lg($property: jx, $value: 0) {
+  @media (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin into-elg($property: jx, $value: 0) {
+  @media (min-width: $screen-elg) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin min-xss($property: jx, $value: 0) {
+  @media (min-width: $screen-xxs) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin min-sm($property: jx, $value: 0) {
+  @media (min-width: $screen-sm) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin min-lg($property: jx, $value: 0) {
+  @media (min-width: $screen-lg) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin max-xs($property: jx, $value: 0) {
+  @media (max-width: $screen-xs-max) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin max-xxs($property: jx, $value: 0) {
+  @media (max-width: $screen-xxs-max) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+// @mixin into-xs-sm($property: jx, $value: 0){
+//   @media (max-width:$screen-sm-max) {
+//     @if $property != jx { #{$property}: #{$value}; }
+//     @content;
+//   }
+// }
+// @mixin into-sm-md-lg($property: jx, $value: 0){
+//   @media (min-width:$screen-sm-min){
+//     @if $property != jx { #{$property}: #{$value}; }
+//     @content;
+//   }
+// }
+@mixin intoMouseScreen($property: jx, $value: 0) {
+  @media (hover: hover) and (pointer: fine) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}

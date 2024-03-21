@@ -1,0 +1,56 @@
+@mixin cont-xxxs($property: jx, $value: 0) {
+  @container (max-width: (#{$screen-xxs})) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin cont-xxs($property: jx, $value: 0) {
+  @container (min-width: #{$screen-xxs}) and (max-width: #{$screen-xxs-max}) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin cont-xs($property: jx, $value: 0) {
+  @container (min-width: #{$screen-xs}) and (max-width: #{$screen-xs-max}) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin cont-sm($property: jx, $value: 0) {
+  @container (min-width: #{$screen-sm}) and (max-width: #{$screen-sm-max}) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin cont-md($property: jx, $value: 0) {
+  @container (min-width: #{$screen-md}) and (max-width: #{$screen-md-max}) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin cont-lg($property: jx, $value: 0) {
+  @container (min-width: #{$screen-lg}) and (max-width: #{$screen-lg-max}) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
+@mixin cont-elg($property: jx, $value: 0) {
+  @container (min-width: #{$screen-elg}) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
