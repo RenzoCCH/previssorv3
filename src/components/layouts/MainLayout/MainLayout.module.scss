@@ -1,0 +1,18 @@
+@import "/src/styles/styles.scss";
+
+.container {
+  background-color: $bgColor;
+  min-height: 100vh;
+  display: grid;
+  grid: min-content auto max-content / 1fr;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+.main {
+  display: grid;
+}
+.footer {
+  grid-area: footer;
+}
