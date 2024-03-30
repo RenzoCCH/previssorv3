@@ -1,0 +1,64 @@
+$height: 154px;
+$width: 400px;
+
+.logo-animation {
+  margin: 16px;
+  max-width: $width;
+  max-height: $height;
+  width: 100%;
+  svg {
+    width: 100%;
+    height: 100%;
+    #title {
+      animation: fadein 1s ease-in;
+    }
+    #pc1 {
+      opacity: 0;
+      animation:
+        slideDown 600ms ease-in,
+        fadein 600ms ease-in;
+      animation-fill-mode: forwards;
+    }
+    #pc3 {
+      opacity: 0;
+      animation: slideUp 500ms ease-in 200ms;
+      animation-fill-mode: forwards;
+    }
+    #pc4 {
+      transform-box: fill-box;
+      transform-origin: 50% 50%;
+      animation:
+        slideDown 400ms ease-in,
+        rotate 200ms ease-in 800ms;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}

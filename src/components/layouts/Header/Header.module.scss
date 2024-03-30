@@ -1,0 +1,27 @@
+@import "/src/styles/styles.scss";
+.header {
+  grid-area: header;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: blue;
+  .header-logo {
+    margin: 13px auto 3px 13px;
+    opacity: 1;
+    transition: opacity 0s ease 0.5s;
+    svg {
+      max-width: 117px;
+      height: 45px;
+    }
+    &.header-logo-init-animation {
+      opacity: 0;
+    }
+  }
+  .loginIcon {
+    align-self: center;
+    @include max-xs() {
+      i {
+        margin: 0;
+      }
+    }
+  }
+}
