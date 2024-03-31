@@ -78,6 +78,14 @@
     @content;
   }
 }
+@mixin max-xxs($property: jx, $value: 0) {
+  @media (max-width: $screen-xxs-max) {
+    @if $property != jx {
+      #{$property}: #{$value};
+    }
+    @content;
+  }
+}
 @mixin max-xs($property: jx, $value: 0) {
   @media (max-width: $screen-xs-max) {
     @if $property != jx {
@@ -86,8 +94,8 @@
     @content;
   }
 }
-@mixin max-xxs($property: jx, $value: 0) {
-  @media (max-width: $screen-xxs-max) {
+@mixin max-sm($property: jx, $value: 0) {
+  @media (max-width: $screen-sm-max) {
     @if $property != jx {
       #{$property}: #{$value};
     }

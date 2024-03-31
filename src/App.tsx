@@ -1,14 +1,19 @@
 import MainLayout from "./components/layouts/MainLayout/MainLayout";
 import LoadingProvider from "./contexts/LoadingContext";
+import useQuiz from "./hooks/useQuiz";
+import Error from "./components/Error/Error";
+import "./services/multiLangauge";
+import Quiz from "./components/Quiz/Quiz";
 
 function App() {
-  // call API
-  // show a loading test while
-  // manage a status with redux
-  // Render the components
+  const [quiz, error] = useQuiz("");
+
   return (
-    <LoadingProvider>
-      <MainLayout>some chiasdfld</MainLayout>
+    <LoadingProvider appReady={!!quiz || !!error}>
+      <MainLayout>
+        {error && <Error message={error} />}
+        {quiz && <Quiz quiz={quiz} />}
+      </MainLayout>
     </LoadingProvider>
   );
 }

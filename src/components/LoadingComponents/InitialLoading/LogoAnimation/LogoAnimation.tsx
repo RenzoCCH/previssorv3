@@ -1,5 +1,5 @@
 import SiteLogo from "../../../../assets/icons/logo_rect.svg?react";
-import { FC, useEffect } from "react";
+import { type FC, useEffect, useState } from "react";
 import "./LogoAnimation.scss";
 import { useAnimate, usePresence } from "framer-motion";
 import { getTransformationMetrics } from "../../../../utils/domUtils";
@@ -11,10 +11,19 @@ type props = {
 export const LogoAnimation: FC<props> = ({ duration = 0.5 }) => {
   const [isPresent, safeToRemove] = usePresence();
   const [scope, animate] = useAnimate();
+  const [loading, setloading] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!isPresent) {
+    if (isPresent) {
+      const enterAnimation = async () => {
+        await animate("#loading-bar", { opacity: 1 }, { delay: 1.2 });
+        setloading(true);
+      };
+      enterAnimation();
+    } else {
       const exitAnimation = async () => {
+        setloading(false);
+        await animate("#loading-bar", { opacity: 0 });
         const transform = getTransformationMetrics(
           "logo-animation",
           "header-logo",
@@ -50,6 +59,10 @@ export const LogoAnimation: FC<props> = ({ duration = 0.5 }) => {
     <div key="logo" className={"initial-loading"} ref={scope}>
       <div id="logo-animation" className={"logo-animation"}>
         <SiteLogo />
+        <div
+          id="loading-bar"
+          className={`loading-bar ${loading ? "loading" : ""}`}
+        ></div>
       </div>
     </div>
   );

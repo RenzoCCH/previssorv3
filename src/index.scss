@@ -1,4 +1,8 @@
+@import "/src/styles/styles.scss";
 body {
   box-sizing: border-box;
   margin: 0;
+  font-family: sans-serif;
+  font-size: 1vw;
+  color: $primaryColor;
 }

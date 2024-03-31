@@ -1,7 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 import classes from "./Header.module.scss";
 import SiteLogo from "../../../assets/icons/logo_rect.svg?react";
-import { FC, useContext } from "react";
+import { type FC, useContext } from "react";
 import { LoadingContext } from "../../../contexts/LoadingContext";
 
 const Header: FC = () => {

@@ -1,0 +1,15 @@
+{
+  "start": "Listo para tomar el examen, presiona empezar.",
+  "time": "El examen tomara {{time}}, buena suerte!",
+  "indications": "Una vez respondas la pregunta, no podrás modificarla.",
+  "button": "Empezar",
+  "remaining": "Tiempo restante:",
+  "next": "Siguiente",
+  "finish": "Finalizar",
+  "thanks": "Gracias por tomar el examen!",
+  "conclude": "El examen ha finalizado.",
+  "error": {
+    "no_server": "No se puede establecer una conexión con el servidor. Por favor, intenta mas tarde.",
+    "not_found": "No se pudo encontrat el recurso solicitado en el servidor. Por favor, verifica la URL e inténtalo nuevament."
+  }
+}

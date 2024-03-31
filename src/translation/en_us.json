@@ -1,0 +1,15 @@
+{
+  "start": "Ready to take the test, press start",
+  "time": "The test will take {{time}}, good Look!.",
+  "indications": "Once you answer a question, you cannot revise it.",
+  "button": "Start",
+  "remaining": "Remaining time:",
+  "next": "Next",
+  "finish": "Finish",
+  "thanks": "Thank you for taking the test!",
+  "conclude": "The quiz has concluded",
+  "error": {
+    "no_server": "Unable to establish a connection with the server. Please try again later.",
+    "not_found": "The request could not be found. Please check the URL and try again."
+  }
+}
