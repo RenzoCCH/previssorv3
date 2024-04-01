@@ -14,4 +14,5 @@ export enum QuestionStatus {
   NOT_VIEWED,
   VIEWED,
   SKIPPED,
+  ANSWERED,
 }
