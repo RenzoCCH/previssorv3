@@ -6,10 +6,10 @@ import "./services/multiLangauge";
 import Quiz from "./components/Quiz/Quiz";
 
 function App() {
-  const [quiz, error] = useQuiz("");
+  const [quiz, error, loading] = useQuiz("");
 
   return (
-    <LoadingProvider appReady={!!quiz || !!error}>
+    <LoadingProvider appReady={!loading}>
       <MainLayout>
         {error && <Error message={error} />}
         {quiz && <Quiz quiz={quiz} />}

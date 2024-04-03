@@ -64,5 +64,5 @@ export const quizSlice = createSlice({
   },
 });
 
-export const { set } = quizSlice.actions;
+export const { set, saveAnswer, saveAnswerCheckbox } = quizSlice.actions;
 export default quizSlice.reducer;
