@@ -1,0 +1,130 @@
+@import "/src/styles/styles.scss";
+.btn {
+  background: $buttonColor;
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 50px;
+  color: $white;
+  box-shadow: 2px 2px 15px 2px $shadowColor;
+  transition: all 0.3s ease-in;
+  outline: none;
+  &.btn-lg {
+    font-size: 22px;
+    padding: 20px 40px;
+  }
+  &.no-shadow {
+    box-shadow: none;
+  }
+  &:focus-within {
+    background: $primaryColorD;
+  }
+  &:active {
+    background: $buttonColorPressed;
+    box-shadow: 0px 0px 1px 1px $shadowColor;
+    transform: scale(0.95);
+    &.no-shadow {
+      box-shadow: none;
+    }
+  }
+  @include intoMouseScreen() {
+    &:hover {
+      background: $primaryColorD;
+    }
+  }
+  @include min-sm() {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+}
+.btn-secondary {
+  background: $secondaryButtonColor;
+  &:focus-within {
+    background: $secondaryButtonColorHover;
+  }
+  &:active {
+    background: $secondaryButtonColorPressed;
+  }
+  @include intoMouseScreen() {
+    &:hover {
+      background: $secondaryButtonColorHover;
+    }
+  }
+}
+.btn-light {
+  background: $white;
+  box-shadow: none;
+  color: unset;
+  &:focus-within {
+    background: $primaryColorD;
+    color: $white;
+    box-shadow: 2px 2px 15px 2px $shadowColor;
+    &.no-shadow {
+      box-shadow: none;
+    }
+  }
+  &:active {
+    background: $buttonColorPressed;
+    box-shadow: 2px 2px 15px 2px $shadowColor;
+    transform: scale(0.95);
+    color: $white;
+    &.no-shadow {
+      box-shadow: none;
+    }
+  }
+  @include intoMouseScreen() {
+    &:hover {
+      background: $primaryColorD;
+      color: $white;
+      box-shadow: 2px 2px 15px 2px $shadowColor;
+      &.no-shadow {
+        box-shadow: none;
+      }
+    }
+  }
+}
+.btn-light-border {
+  background: $white;
+  box-shadow: none;
+  color: $primaryColorD;
+  border: 1px solid $primaryColorD;
+  &:focus-within,
+  &:active {
+    border: 1px solid $primaryColorD;
+    background: $primaryColorD;
+    color: $white;
+    box-shadow: none;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+  @include intoMouseScreen() {
+    &:hover {
+      border: 1px solid $primaryColorD;
+      background: $primaryColorD;
+      color: $white;
+      box-shadow: none;
+    }
+  }
+}
+.no-button {
+  background: none;
+  color: $primaryColor;
+  &:focus-within {
+    color: $primaryColorD;
+    text-decoration: underline;
+    background: none;
+  }
+  &:active {
+    color: $primaryColorD;
+    text-decoration: underline;
+    background: none;
+  }
+  @include intoMouseScreen() {
+    &:hover {
+      color: $primaryColorD;
+      text-decoration: underline;
+      background: none;
+    }
+  }
+}

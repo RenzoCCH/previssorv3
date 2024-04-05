@@ -23,5 +23,3 @@ export function getTransformationMetrics(
     scale: toMetrics.width / fromMetrics.width,
   };
 }
-
-window.ren = getTransformationMetrics;

@@ -1,4 +1,5 @@
 import { QuestionStatus, StudenStatus } from "../types/enum";
+import { QuestionMultichoice, QuestionParagrah } from "../types/quiz/question";
 import { QuizTaken } from "../types/quiz/quizTaken";
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 
@@ -37,6 +38,9 @@ export const quizSlice = createSlice({
     set: (state, action: PayloadAction<QuizTaken>) => {
       state.quiz = action.payload;
     },
+    start: (state) => {
+      state.quiz.studentStatus = StudenStatus.PROGRESS;
+    },
     saveAnswer: (
       state,
       {
@@ -44,7 +48,7 @@ export const quizSlice = createSlice({
       }: PayloadAction<{ index: number; response: string }>,
     ) => {
       // set answer on quesiton
-      state.quiz.questions[index].response = response;
+      (state.quiz.questions[index] as QuestionParagrah).response = response;
       // set question status
       state.quiz.questions[index].status = QuestionStatus.ANSWERED;
       //quiz, set current question
@@ -56,7 +60,7 @@ export const quizSlice = createSlice({
         payload: { index, options },
       }: PayloadAction<{ index: number; options: Option[] }>,
     ) => {
-      state.quiz.questions[index].options = options;
+      (state.quiz.questions[index] as QuestionMultichoice).options = options;
       state.quiz.questions[index].status = QuestionStatus.ANSWERED;
       //quiz, set current question
       state.quiz.currentQuestion = index + 1;
@@ -64,5 +68,5 @@ export const quizSlice = createSlice({
   },
 });
 
-export const { set, saveAnswer, saveAnswerCheckbox } = quizSlice.actions;
+export const { set, saveAnswer, saveAnswerCheckbox, start } = quizSlice.actions;
 export default quizSlice.reducer;

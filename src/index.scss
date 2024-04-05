@@ -6,3 +6,9 @@ body {
   font-size: 1vw;
   color: $primaryColor;
 }
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

@@ -21,4 +21,6 @@ export interface QuizTaken {
   relativeTotal: number | null;
   relativeScore: number | null;
   duration: number | null;
+  title?: string;
+  language?: "en" | "es";
 }

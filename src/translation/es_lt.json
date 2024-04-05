@@ -1,5 +1,5 @@
 {
-  "start": "Listo para tomar el examen, presiona empezar.",
+  "start": "Listo para tomar el examen? presiona empezar.",
   "time": "El examen tomara {{time}}, buena suerte!",
   "indications": "Una vez respondas la pregunta, no podrás modificarla.",
   "button": "Empezar",

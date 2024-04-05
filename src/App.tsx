@@ -7,7 +7,6 @@ import Quiz from "./components/Quiz/Quiz";
 
 function App() {
   const [quiz, error, loading] = useQuiz("");
-
   return (
     <LoadingProvider appReady={!loading}>
       <MainLayout>

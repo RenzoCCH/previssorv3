@@ -1,2 +1,8 @@
 @import "/src/styles/styles.scss";
 @import "/src/styles/card.scss";
+
+.startCard {
+  button {
+    margin-bottom: 100px;
+  }
+}

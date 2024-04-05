@@ -1,9 +1,8 @@
-export interface Question {
+import { QuestionType } from "../enum";
+
+interface QuestionBase {
   id: number;
-  type: QuestionType;
   question: string;
-  options?: Option[];
-  response?: string;
   isCorrect?: boolean;
   points: number;
   progress?: number;
@@ -12,3 +11,13 @@ export interface Question {
   required: boolean;
   score?: number;
 }
+
+export interface QuestionParagrah extends QuestionBase {
+  type: QuestionType.PARAGRAPH;
+  response: string;
+}
+export interface QuestionMultichoice extends QuestionBase {
+  type: QuestionType.MULTICHOICE;
+  options: Option[];
+}
+export type Question = QuestionParagrah | QuestionMultichoice;

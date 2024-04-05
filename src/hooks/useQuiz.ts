@@ -19,6 +19,8 @@ export default function useQuiz(
       try {
         const quizData = await getQuiz(quizToken);
         dispatch(set(quizData));
+        console.log("quizData", quizData);
+
         // setQuiz(quizData);
       } catch (e) {
         setError((e as Error).message);

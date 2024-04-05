@@ -7,7 +7,7 @@ type props = {
 
 const Error: FC<props> = ({ message }) => {
   return (
-    <section className={classes.container}>
+    <section className={classes.card}>
       <p>{message}</p>
     </section>
   );

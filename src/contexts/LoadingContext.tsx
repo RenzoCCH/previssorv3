@@ -48,7 +48,7 @@ const LoadingProvider: FC<props> = ({ children, appReady = false }) => {
     >
       <>
         <InitialLoading in={initLoading} duration={0.5} />
-        {children}
+        {appReady && children}
       </>
     </LoadingContext.Provider>
   );

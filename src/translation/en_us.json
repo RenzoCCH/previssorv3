@@ -1,5 +1,5 @@
 {
-  "start": "Ready to take the test, press start",
+  "start": "Ready to take the test? press start",
   "time": "The test will take {{time}}, good Look!.",
   "indications": "Once you answer a question, you cannot revise it.",
   "button": "Start",
