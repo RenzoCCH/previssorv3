@@ -12,8 +12,11 @@ type props = {
   children: ReactNode;
   appReady: boolean;
 };
+type loadingContext = {
+  initLoading: boolean;
+};
 
-export const LoadingContext = createContext({
+export const LoadingContext = createContext<loadingContext>({
   initLoading: true,
 });
 const LoadingProvider: FC<props> = ({ children, appReady = false }) => {

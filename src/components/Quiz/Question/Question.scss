@@ -1,0 +1,57 @@
+@import "/src/styles/styles.scss";
+
+.questionComponent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.questionWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+  max-width: 600px;
+  .question {
+    font-size: 20px;
+    margin: 10px 0 20px;
+    color: $primaryColorD;
+    span {
+      padding-right: 10px;
+    }
+  }
+  .field {
+    color: $primaryColorDD;
+  }
+  .questionParagraphbuttons {
+    display: flex;
+    margin-top: 16px;
+    .nextButton {
+      margin: 0;
+      margin-left: auto;
+    }
+  }
+  .checkbox {
+    font-size: 20px;
+  }
+  @include min-sm() {
+    max-width: 900px;
+    .question {
+      font-size: 26px;
+    }
+    .focusInput .field {
+      font-size: 26px;
+    }
+    .checkbox {
+      font-size: 26px;
+      svg, input {
+        width: 35px;
+        height: 35px;
+      }
+      span {
+        padding-left: 10px;
+      }
+    }
+  }
+}

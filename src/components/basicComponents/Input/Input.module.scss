@@ -1,0 +1,19 @@
+@import "/src/styles/styles.scss";
+$animation-time: 0.3s ease-in;
+
+.input {
+  margin-bottom: 5px;
+  .input-label {
+    margin-bottom: 0;
+  }
+  &.invalid {
+    .input-label {
+      .border:before {
+        background-color: $dangerColor;
+      }
+      .border:after {
+        background-color: $dangerColorD;
+      }
+    }
+  } 
+}

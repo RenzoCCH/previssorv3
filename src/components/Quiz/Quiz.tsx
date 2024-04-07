@@ -19,7 +19,12 @@ const Quiz: FC<pros> = ({ quiz }) => {
   let card: ReactNode = <StartQuiz title={quiz.title} />;
   let key = `${StudenStatus.NEW}`;
   if (quiz.studentStatus === StudenStatus.PROGRESS) {
-    card = <Question question={quiz.questions[quiz.currentQuestion]} />;
+    card = (
+      <Question
+        question={quiz.questions[quiz.currentQuestion]}
+        index={quiz.currentQuestion}
+      />
+    );
     key = `${quiz.questions[quiz.currentQuestion]}`;
   } else if (quiz.studentStatus === StudenStatus.FINISHED) {
     card = <Finish />;
