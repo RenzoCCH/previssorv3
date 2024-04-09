@@ -1,0 +1,45 @@
+@import "/src/styles/styles.scss";
+$sizes: "xxxs", "xxs", "xs", "sm", "md", "lg", "elg";
+
+#xxxs {
+  display: none;
+  @include into-xxxs() {
+    display: block;
+  }
+}
+#xxs {
+  display: none;
+  @include into-xxs() {
+    display: block;
+  }
+}
+#xs {
+  display: none;
+  @include into-xs() {
+    display: block;
+  }
+}
+#sm {
+  display: none;
+  @include into-sm() {
+    display: block;
+  }
+}
+#md {
+  display: none;
+  @include into-md() {
+    display: block;
+  }
+}
+#lg {
+  display: none;
+  @include into-lg() {
+    display: block;
+  }
+}
+#elg {
+  display: none;
+  @include into-elg() {
+    display: block;
+  }
+}

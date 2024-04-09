@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { QuestionParagrah } from "../../../../types/quiz/question";
 import { useTranslation } from "react-i18next";
+import FocusInput from "../../../basicComponents/FocusInput/FocusInput";
 
 type props = {
   question: QuestionParagrah;
@@ -24,49 +25,8 @@ const QuestionParagraphComponent: FC<props> = ({
       <label className="question" htmlFor={id}>
         <span>{index + 1}.</span>
         {question}
+        <FocusInput />
       </label>
-      {/* <Formik
-        initialValues={{
-          response: question.response || "",
-        }}
-        validationSchema={Yup.object().shape(validate)}
-        onSubmit={(values) => {
-          saveDispatch({
-            type: quizTakenActions.saveQuestion,
-            payload: {
-              questionType: quizTakenActions.questionResponse,
-              questionIndex: index,
-              response: values.response,
-            },
-          });
-        }}
-      >
-        {({ errors, handleSubmit, values, touched, handleBlur, setValues }) => {
-          return (
-            <form noValidate onSubmit={handleSubmit}>
-              <Input
-                value={values.response}
-                onChange={(e) => {
-                  setValues({ response: e.target.value });
-                }}
-                size={InputSize.lg}
-                error={errors.response}
-                id={id}
-                name="response"
-                onBlur={handleBlur}
-                touched={touched.response}
-                contentEditable
-                focus
-              />
-              <div className="questionParagraphbuttons">
-                <Button type="submit" className="no-shadow nextButton">
-                  {t(isLast ? "quiz.finish" : "quiz.next")}
-                </Button>
-              </div>
-            </form>
-          );
-        }}
-      </Formik> */}
     </div>
   );
 };

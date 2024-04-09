@@ -1,0 +1,65 @@
+@import "/src/styles/styles.scss";
+
+$size: 30px;
+.checkbox {
+  display: inline-grid;
+  grid-template-columns: $size 1fr;
+  cursor: pointer;
+  grid-gap: 10px;
+  align-items: center;
+  color: $primaryColor;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out 0s;
+  input {
+    cursor: pointer;
+    width: $size;
+    height: $size;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    opacity: 0;
+  }
+  svg {
+    width: $size;
+    height: $size;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border: 2px solid $primaryColor;
+    padding: 3px;
+    background: $lighGray;
+    path {
+      stroke: $primaryColor;
+      stroke-width: 13px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke-dasharray: 126.37, 126.37;
+      stroke-dashoffset: 126.37;
+      transition: stroke-dashoffset 0.3s ease-in-out 0s;
+    }
+  }
+  &.radio {
+    svg {
+      border-radius: 50%;
+    }
+  }
+  .chbx-label-inc {
+    color: $grayFontColor;
+  }
+  &:hover,
+  &:active,
+  &:focus-within {
+    background-color: $lighGray;
+  }
+  &.checked {
+    svg {
+      background: $white;
+      path {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+  &.checkbox-no-label {
+    grid-gap: 0;
+  }
+}

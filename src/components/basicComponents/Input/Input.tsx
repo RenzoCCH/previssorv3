@@ -25,7 +25,7 @@ const Input = forwardRef(
           setDirty(true);
         },
       }),
-      []
+      [],
     );
     useEffect(() => {
       if (touched) {
@@ -36,7 +36,9 @@ const Input = forwardRef(
     const errorMessage = stateError || error;
 
     return (
-      <span className={`${classes.input} ${errorMessage && dirty ? classes.invalid : ""}`}>
+      <span
+        className={`${classes.input} ${errorMessage && dirty ? classes.invalid : ""}`}
+      >
         <FocusInput
           value={value}
           {...props}
@@ -55,7 +57,7 @@ const Input = forwardRef(
         />
       </span>
     );
-  }
+  },
 );
 
 export default Input;

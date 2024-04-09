@@ -1,6 +1,6 @@
 export function getTransformationMetrics(
   fromId: string,
-  toId: string,
+  toId: string
 ): {
   x: number;
   y: number;
@@ -22,4 +22,8 @@ export function getTransformationMetrics(
     y: -(fromMetrics.y - toMetrics.y),
     scale: toMetrics.width / fromMetrics.width,
   };
+}
+export function isHidden(el: HTMLElement) {
+  const style = window.getComputedStyle(el);
+  return style.display === "none";
 }

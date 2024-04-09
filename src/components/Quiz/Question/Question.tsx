@@ -11,7 +11,7 @@ type props = {
 };
 const QuestionComponent: FC<props> = ({ question, index }) => {
   let QuestionTypeC: React.ElementType = Fragment;
-  switch (question.type) {
+    switch (question.type) {
     case QuestionType.MULTICHOICE:
       QuestionTypeC = QuestionMultichoice;
       break;

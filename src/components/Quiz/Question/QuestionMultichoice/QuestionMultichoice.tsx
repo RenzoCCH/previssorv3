@@ -1,6 +1,5 @@
-
 const QuestionMultichoice = () => {
-  return 'question multichoice';
+  return "question multichoice";
 };
 
 export default QuestionMultichoice;
