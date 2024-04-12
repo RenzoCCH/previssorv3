@@ -1,12 +1,3 @@
-@import "/src/styles/styles.scss";
-
-.questionComponent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
-}
-
 .questionWrapper {
   display: flex;
   flex-direction: column;
@@ -17,7 +8,7 @@
     font-size: 20px;
     margin: 10px 0 20px;
     color: $primaryColorD;
-    span {
+    .number {
       padding-right: 10px;
     }
   }

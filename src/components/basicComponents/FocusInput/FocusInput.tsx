@@ -9,8 +9,9 @@ import { useTranslation } from "react-i18next";
 import { sizes } from "../../ResizeComponent/ResizeComponent";
 import { getId } from "../../../utils/utils";
 import ContentEditableClass from "../ContentEditableClass";
+import classes from "./FocusInput.module.scss";
 
-enum inputSize {
+export enum inputSize {
   lg = "input-lg",
   md = "",
 }
@@ -28,7 +29,7 @@ type props = {
   focus?: boolean;
   contentEditable?: boolean;
   noBorder?: boolean;
-  onBlur?: () => void;
+  onBlur?: (e: FocusEvent) => void;
   type?: type;
 } & ComponentPropsWithoutRef<"input" | "textarea">;
 
@@ -39,7 +40,7 @@ const FocusInput = forwardRef<InputHandle, props>(
       onChange,
       id = getId(),
       label = "",
-      size = inputSize.md,
+      size = inputSize.lg,
       focus = false,
       contentEditable = false,
       noBorder = false,
@@ -73,23 +74,29 @@ const FocusInput = forwardRef<InputHandle, props>(
     );
     const isFilled = !!value;
 
+    console.log('filled', isFilled);
+    
+    console.log(classes);
+
     return (
-      <span className={`focusInput ${isFilled ? "filled" : ""} ${size}`}>
+      <span
+        className={`${classes.focusInput} ${classes["input-label"]} ${isFilled ? classes.filled : ""} ${classes[size]}`}
+      >
         {!contentEditable ? (
           <input
-            className="field"
             id={id}
             ref={input}
             type={type}
             value={value}
             onChange={onChange}
+            className={classes.field}
             onBlur={onBlur}
             {...props}
           />
         ) : (
           <ContentEditableClass
             innerRef={input}
-            className="field"
+            className={classes.field}
             html={value}
             onChange={onChange}
             onBlur={onBlur}
@@ -100,7 +107,7 @@ const FocusInput = forwardRef<InputHandle, props>(
         <label htmlFor={id}>
           <span>{label}</span>
         </label>
-        {!noBorder && <span className="border" />}
+        {!noBorder && <span className={classes.border} />}
       </span>
     );
   }

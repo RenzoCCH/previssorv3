@@ -1,6 +1,6 @@
 import { FC, Fragment } from "react";
 import { Question } from "../../../types/quiz/question";
-import "./Question.scss";
+import classes from "./Question.module.scss";
 import { QuestionType } from "../../../types/enum";
 import QuestionParagraph from "./QuestionParagraph/QuestionParagraph";
 import QuestionMultichoice from "./QuestionMultichoice/QuestionMultichoice";
@@ -11,7 +11,7 @@ type props = {
 };
 const QuestionComponent: FC<props> = ({ question, index }) => {
   let QuestionTypeC: React.ElementType = Fragment;
-    switch (question.type) {
+  switch (question.type) {
     case QuestionType.MULTICHOICE:
       QuestionTypeC = QuestionMultichoice;
       break;
@@ -23,7 +23,7 @@ const QuestionComponent: FC<props> = ({ question, index }) => {
   }
 
   return (
-    <div className={`questionComponent`}>
+    <div className={classes.questionComponent}>
       <QuestionTypeC question={question} index={index} />
     </div>
   );

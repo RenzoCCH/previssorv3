@@ -1,23 +1,36 @@
-import { motion } from "framer-motion";
-import { type FC, ReactElement } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { type FC, ReactElement, ElementType } from "react";
 
 type props = {
-  wrapper: string;
+  show: boolean;
   children: ReactElement;
+  className?: string;
+  el?: ElementType;
   duration?: number;
 };
 
-const FadeInOut: FC<props> = ({ wrapper, children, duration = 0.5 }) => {
-  const Wrapper = motion(wrapper);
+const FadeInOut: FC<props> = ({
+  show,
+  children,
+  className = "",
+  el = "div",
+  duration = 0.5,
+}) => {
+  const Wrapper = motion(el);
   return (
-    <Wrapper
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration }}
-    >
-      {children}
-    </Wrapper>
+    <AnimatePresence>
+      {show && (
+        <Wrapper
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration }}
+          className={className}
+        >
+          {children}
+        </Wrapper>
+      )}
+    </AnimatePresence>
   );
 };
 

@@ -6,6 +6,10 @@ body {
   color: $primaryColor;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
 button {
   background: none;
   border: none;

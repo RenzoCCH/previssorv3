@@ -1,0 +1,16 @@
+@import "/src/styles/styles.scss";
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  min-height: 100%;
+  height: 100%;
+  @include min-sm() {
+    font-size: 2rem;
+  }
+  p {
+    padding: 1rem;
+  }
+}

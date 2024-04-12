@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { QuestionParagrah } from "../../../../types/quiz/question";
 import { useTranslation } from "react-i18next";
-import FocusInput from "../../../basicComponents/FocusInput/FocusInput";
+import classes from "./QuestionParagraph.module.scss";
+import Input from "../../../basicComponents/Input/Input";
 
 type props = {
   question: QuestionParagrah;
@@ -9,7 +10,7 @@ type props = {
 };
 
 const QuestionParagraphComponent: FC<props> = ({
-  question: { required, id, question },
+  question: { required, id, question, response },
   index,
 }) => {
   const { t } = useTranslation();
@@ -21,11 +22,11 @@ const QuestionParagraphComponent: FC<props> = ({
     };
   }
   return (
-    <div className="questionWrapper">
-      <label className="question" htmlFor={id}>
-        <span>{index + 1}.</span>
+    <div className={classes.questionWrapper}>
+      <label className={classes.question} htmlFor={`${id}`}>
+        <span className={classes.number}>{index + 1}.</span>
         {question}
-        <FocusInput />
+        <Input value={response} onChange id={`${id}`} contentEditable error="errokasjdf;lkjr"/>
       </label>
     </div>
   );
