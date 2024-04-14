@@ -1,34 +1,78 @@
-import { FC } from "react";
+import { type FC } from "react";
 import { QuestionParagrah } from "../../../../types/quiz/question";
 import { useTranslation } from "react-i18next";
 import classes from "./QuestionParagraph.module.scss";
 import Input from "../../../basicComponents/Input/Input";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import Button from "../../../basicComponents/Button/Button";
+import { inputSize } from "../../../basicComponents/FocusInput/FocusInput";
+import { useDispatch } from "react-redux";
+import { saveAnswer, updateAnswer } from "../../../../store/quizSlice";
 
 type props = {
   question: QuestionParagrah;
   index: number;
 };
+type questionT = {
+  question: string;
+};
 
 const QuestionParagraphComponent: FC<props> = ({
-  question: { required, id, question, response },
+  question: { id, question, response, required },
   index,
 }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
-  let validate = {};
-  if (required) {
-    validate = {
-      // response: Yup.string().max(3000).required(t("quiz.required")),
-    };
-  }
+  const {
+    control,
+    formState: {
+      errors: { question: questionError },
+    },
+    handleSubmit,
+  } = useForm<questionT>({
+    defaultValues: {
+      question: response,
+    },
+  });
+
+  const onSubmit: SubmitHandler<questionT> = () => {
+    dispatch(saveAnswer({ index }));
+  };
+
   return (
-    <div className={classes.questionWrapper}>
+    <form onSubmit={handleSubmit(onSubmit)} className={classes.questionWrapper}>
       <label className={classes.question} htmlFor={`${id}`}>
         <span className={classes.number}>{index + 1}.</span>
         {question}
-        <Input value={response} onChange id={`${id}`} contentEditable error="errokasjdf;lkjr"/>
+        <Controller
+          name="question"
+          control={control}
+          rules={{
+            required: { value: required, message: t("validation.required") },
+            maxLength: {
+              value: 3000,
+              message: t("validation.max", { max: 3000 }),
+            },
+          }}
+          render={({ field }) => (
+            <Input
+              {...field}
+              onChange={(e) => {
+                dispatch(updateAnswer({ index, response: e.target.value }));
+                field.onChange(e);
+              }}
+              contentEditable
+              error={questionError && questionError.message}
+              size={inputSize.lg}
+            />
+          )}
+        ></Controller>
       </label>
-    </div>
+      <Button classList={["btn-lg"]} id="btn">
+        {t("next")}
+      </Button>
+    </form>
   );
 };
 

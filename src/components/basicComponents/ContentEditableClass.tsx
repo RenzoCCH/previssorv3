@@ -78,21 +78,25 @@ export default class ContentEditable extends React.Component<Props> {
     const { tagName, html, innerRef, ...props } = this.props;
 
     return React.createElement(
-      tagName || 'div',
+      tagName || "div",
       {
         ...props,
-        ref: typeof innerRef === 'function' ? (current: HTMLElement) => {
-          innerRef(current)
-          this.el.current = current
-        } : innerRef || this.el,
+        ref:
+          typeof innerRef === "function"
+            ? (current: HTMLElement) => {
+                innerRef(current);
+                this.el.current = current;
+              }
+            : innerRef || this.el,
         onInput: this.emitChange,
         onBlur: this.props.onBlur || this.emitChange,
         onKeyUp: this.props.onKeyUp || this.emitChange,
         onKeyDown: this.props.onKeyDown || this.emitChange,
         contentEditable: !this.props.disabled,
-        dangerouslySetInnerHTML: { __html: html }
+        dangerouslySetInnerHTML: { __html: html },
       },
-      this.props.children);
+      this.props.children
+    );
   }
   componentDidMount() {
     this.getEl().addEventListener("keydown", this.preventTags);
@@ -101,7 +105,7 @@ export default class ContentEditable extends React.Component<Props> {
     this.getEl().removeEventListener("keydown", this.preventTags);
   }
 
-  shouldComponentUpdate(nextProps: Props):boolean {
+  shouldComponentUpdate(nextProps: Props): boolean {
     const { props } = this;
     const el = this.getEl();
 
@@ -132,7 +136,7 @@ export default class ContentEditable extends React.Component<Props> {
 
     // Perhaps React (whose VDOM gets outdated because we often prevent
     // rerendering) did not update the DOM. So we update it manually now.
-    if (this.props.html !== el.innerHTML) {
+    if (this.props.html !== el.innerHTML && this.props.html !== undefined) {
       el.innerHTML = this.props.html;
     }
     this.lastHtml = this.props.html;

@@ -7,11 +7,13 @@ import Quiz from "./components/Quiz/Quiz";
 
 function App() {
   const [quiz, error, loading] = useQuiz("");
+  console.log('rendering App');
+  
   return (
     <LoadingProvider appReady={!loading}>
       <MainLayout>
         {error && <Error message={error} />}
-        {quiz && <Quiz quiz={quiz} />}
+        {quiz && <Quiz/>}
       </MainLayout>
     </LoadingProvider>
   );

@@ -5,7 +5,7 @@ import classes from "./ErrorMessage.module.scss";
 
 type props = {
   show: boolean;
-  message: ReactElement;
+  message: string;
   el?: ElementType;
   size?: inputSize;
 };
@@ -22,7 +22,7 @@ const ErrorMessage: FC<props> = ({
       }`}
     >
       <FadeInOut show={show} el={el}>
-        {(message as ReactElement)}
+        <span>{message}</span>
       </FadeInOut>
     </span>
   );

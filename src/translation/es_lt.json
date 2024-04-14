@@ -11,5 +11,9 @@
   "error": {
     "no_server": "No se puede establecer una conexión con el servidor. Por favor, intenta mas tarde.",
     "not_found": "No se pudo encontrat el recurso solicitado en el servidor. Por favor, verifica la URL e inténtalo nuevament."
+  },
+  "validation": {
+    "max": "Maximo {{max}} caracteres",
+    "required": "Campo requerido"
   }
 }

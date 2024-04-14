@@ -38,6 +38,12 @@ $size: 30px;
       transition: stroke-dashoffset 0.3s ease-in-out 0s;
     }
   }
+  .label {
+    font-size: 18px;
+    @include min-sm() {
+      font-size: 24px;
+    }
+  }
   &.radio {
     svg {
       border-radius: 50%;

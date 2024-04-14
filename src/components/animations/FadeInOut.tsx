@@ -1,15 +1,17 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { type FC, ReactElement, ElementType } from "react";
+import { type FC, type ElementType, type ReactNode } from "react";
 
 type props = {
+  id?: string;
   show: boolean;
-  children: ReactElement;
+  children: ReactNode;
   className?: string;
   el?: ElementType;
   duration?: number;
 };
 
 const FadeInOut: FC<props> = ({
+  id = "unique",
   show,
   children,
   className = "",
@@ -17,10 +19,12 @@ const FadeInOut: FC<props> = ({
   duration = 0.5,
 }) => {
   const Wrapper = motion(el);
+  
   return (
     <AnimatePresence>
       {show && (
         <Wrapper
+          key={id}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

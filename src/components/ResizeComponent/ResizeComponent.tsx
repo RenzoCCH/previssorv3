@@ -66,7 +66,6 @@ export const sizes = {
 };
 
 const fnfSubs = (size: sizesConstraints) => (cb: subsFn) => {
-  console.log('from reseiz', size);
   
   if (sizes[size]()) cb(prevSize);
   subscribeEvt(cb, size);

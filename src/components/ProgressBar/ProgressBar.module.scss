@@ -1,0 +1,26 @@
+@import "/src/styles/styles.scss";
+
+.container {
+  flex-grow: 1;
+  width: 100%;
+  padding: 8px;
+  @include min-sm() {
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+  }
+}
+.progressTotal {
+  height: 10px;
+  width: 100%;
+  background-color: $transparentLightBg;
+  border-radius: 10px;
+  border: 1px solid $transparentBg;
+  overflow: hidden;
+}
+.progress {
+  height: 10px;
+  background-color: $transparentBg;
+  transition: width 0.3s ease-in-out;
+}

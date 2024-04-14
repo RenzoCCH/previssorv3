@@ -41,32 +41,52 @@ export const quizSlice = createSlice({
     start: (state) => {
       state.quiz.studentStatus = StudenStatus.PROGRESS;
     },
-    saveAnswer: (
+    updateAnswer: (
       state,
       {
         payload: { index, response },
-      }: PayloadAction<{ index: number; response: string }>,
+      }: PayloadAction<{ index: number; response: string }>
     ) => {
-      // set answer on quesiton
       (state.quiz.questions[index] as QuestionParagrah).response = response;
+    },
+    saveAnswer: (
+      state,
+      { payload: { index } }: PayloadAction<{ index: number }>
+    ) => {
       // set question status
       state.quiz.questions[index].status = QuestionStatus.ANSWERED;
+      if (index + 1 >= state.quiz.questions.length) {
+        state.quiz.studentStatus = StudenStatus.FINISHED;
+      }
       //quiz, set current question
       state.quiz.currentQuestion = index + 1;
     },
-    saveAnswerCheckbox: (
+    updateAnswerMultichoice: (
       state,
       {
-        payload: { index, options },
-      }: PayloadAction<{ index: number; options: Option[] }>,
+        payload: { index, optionId, value, isRadio },
+      }: PayloadAction<{
+        index: number;
+        optionId: number;
+        value: boolean;
+        isRadio: boolean;
+      }>
     ) => {
-      (state.quiz.questions[index] as QuestionMultichoice).options = options;
-      state.quiz.questions[index].status = QuestionStatus.ANSWERED;
-      //quiz, set current question
-      state.quiz.currentQuestion = index + 1;
+      const question = state.quiz.questions[index] as QuestionMultichoice;
+      if (isRadio && !value) {
+        return state;
+      }
+      question.options.forEach((o) => {
+        if (o.id === optionId) {
+          o.checked = value;
+        } else if (isRadio) {
+          o.checked = false;
+        }
+      });
     },
   },
 });
 
-export const { set, saveAnswer, saveAnswerCheckbox, start } = quizSlice.actions;
+export const { set, saveAnswer, updateAnswerMultichoice, start, updateAnswer } =
+  quizSlice.actions;
 export default quizSlice.reducer;

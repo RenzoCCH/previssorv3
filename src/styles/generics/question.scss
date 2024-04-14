@@ -26,6 +26,9 @@
   .checkbox {
     font-size: 20px;
   }
+  & > button {
+    align-self: end;
+  }
   @include min-sm() {
     max-width: 900px;
     .question {

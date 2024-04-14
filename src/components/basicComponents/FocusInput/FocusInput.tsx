@@ -74,10 +74,6 @@ const FocusInput = forwardRef<InputHandle, props>(
     );
     const isFilled = !!value;
 
-    console.log('filled', isFilled);
-    
-    console.log(classes);
-
     return (
       <span
         className={`${classes.focusInput} ${classes["input-label"]} ${isFilled ? classes.filled : ""} ${classes[size]}`}

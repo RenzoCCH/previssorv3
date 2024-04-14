@@ -1,17 +1,16 @@
 import { FC, ReactNode } from "react";
-import { QuizTaken } from "../../types/quiz/quizTaken";
 import classes from "./Quiz.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import StartQuiz from "./StartQuiz/StartQuiz";
 import { StudenStatus } from "../../types/enum";
 import Question from "./Question/Question";
 import Finish from "./Finish/Finish";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
-type pros = {
-  quiz: QuizTaken;
-};
 
-const Quiz: FC<pros> = ({ quiz }) => {
+const Quiz: FC = () => {
+  const quiz = useSelector((state: RootState) => state.quiz.quiz);
   if (quiz.id === 0) {
     return null;
   }
@@ -25,7 +24,7 @@ const Quiz: FC<pros> = ({ quiz }) => {
         index={quiz.currentQuestion}
       />
     );
-    key = `${quiz.questions[quiz.currentQuestion]}`;
+    key = `${quiz.currentQuestion}`;
   } else if (quiz.studentStatus === StudenStatus.FINISHED) {
     card = <Finish />;
     key = `${StudenStatus.FINISHED}`;

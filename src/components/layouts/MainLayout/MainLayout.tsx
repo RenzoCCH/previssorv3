@@ -7,6 +7,8 @@ type props = {
 };
 
 const MainLayout: FC<props> = ({ children }) => {
+  console.log('rendering MainLayout');
+  
   return (
     <div className={classes.container}>
       <Header />

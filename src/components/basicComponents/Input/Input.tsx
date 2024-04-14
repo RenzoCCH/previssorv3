@@ -5,8 +5,7 @@ import {
   useEffect,
   useImperativeHandle,
   useRef,
-  useState,
-  ReactElement,
+  useState
 } from "react";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import FocusInput, { inputSize } from "../FocusInput/FocusInput";
