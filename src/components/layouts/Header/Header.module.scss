@@ -25,5 +25,13 @@
   }
 }
 .progress {
+  flex-grow: 1;
   width: 100%;
+  padding: 8px;
+  @include min-sm() {
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+  }
 }

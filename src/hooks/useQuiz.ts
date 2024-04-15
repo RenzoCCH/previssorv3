@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getQuiz } from ".././services/quizService";
+import { getQuizFromStore } from ".././services/quizService";
 import { type QuizTaken } from "../types/quiz/quizTaken";
 import { useDispatch } from "react-redux";
 import { set } from "../store/quizSlice";
@@ -15,10 +15,8 @@ export default function useQuiz(
   useEffect(() => {
     (async () => {
       try {
-        const quizData = await getQuiz(quizToken);
+        const quizData = await getQuizFromStore(quizToken);
         dispatch(set(quizData));
-        // console.log("quizData", quizData);
-
         setQuiz(quizData);
       } catch (e) {
         setError((e as Error).message);

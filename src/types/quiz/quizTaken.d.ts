@@ -2,7 +2,7 @@ import { StudenStatus } from "../enum";
 import { Question } from "./question";
 
 export interface QuizTaken {
-  id: number;
+  id: string;
   name: string;
   lastName: string;
   questions: Question[];

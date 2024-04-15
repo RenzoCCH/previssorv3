@@ -1,6 +1,7 @@
 // import { createApi, fetchBaseQuery } from "@reduxjs/toolkit";
 import { QuizTaken } from "../types/quiz/quizTaken";
 import i18next from "i18next";
+import { localRestore } from "../utils/storage";
 
 interface ResponseError extends Error {
   status?: number;
@@ -26,4 +27,14 @@ export const getQuiz = async (quizToken: string): Promise<QuizTaken> => {
     }
     throw new Error(message);
   }
+};
+
+export const getQuizFromStore = async (quizToken: string) => {
+  let quiz = localRestore(quizToken);
+  console.log("store", quiz);
+
+  if (!quiz) {
+    quiz = await getQuiz(quizToken);
+  }
+  return quiz;
 };

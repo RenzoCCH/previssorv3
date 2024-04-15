@@ -15,9 +15,11 @@ import { inputSize } from "../../../basicComponents/FocusInput/FocusInput";
 type props = {
   question: QuestionMultichoice;
   index: number;
+  isLast?: boolean;
 };
 const QuestionMultichoice: FC<props> = ({
   question: { id, question, options, required },
+  isLast = false,
   index,
 }) => {
   const { t } = useTranslation();
@@ -70,7 +72,7 @@ const QuestionMultichoice: FC<props> = ({
         <ErrorMessage show={!!error} message={error} size={inputSize.lg} />
       </span>
       <Button classList={["btn-lg"]} id="btn" onClick={nextQuestion}>
-        {t("next")}
+        {t(isLast ? "finish" : "next")}
       </Button>
     </div>
   );

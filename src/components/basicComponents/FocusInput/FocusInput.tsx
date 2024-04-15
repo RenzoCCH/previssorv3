@@ -23,7 +23,7 @@ type InputHandle = {
 type props = {
   value?: string;
   onChange?: () => void;
-  id?: string;
+  id: string;
   label?: string;
   size?: inputSize;
   focus?: boolean;
@@ -38,7 +38,7 @@ const FocusInput = forwardRef<InputHandle, props>(
     {
       value,
       onChange,
-      id = getId(),
+      id,
       label = "",
       size = inputSize.lg,
       focus = false,

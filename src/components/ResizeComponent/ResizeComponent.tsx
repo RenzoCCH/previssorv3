@@ -8,6 +8,7 @@ import {
   subsFn,
 } from "../../utils/EventRegister";
 import "./ResizeComponent.scss";
+import { delayExecution } from "../../utils/utils";
 type sizesType = "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "elg";
 type sizesConstraints = sizesType | "maxXs" | "minSm";
 type sizeListType = { [key: string]: sizesType };
@@ -66,7 +67,6 @@ export const sizes = {
 };
 
 const fnfSubs = (size: sizesConstraints) => (cb: subsFn) => {
-  
   if (sizes[size]()) cb(prevSize);
   subscribeEvt(cb, size);
 };
@@ -94,11 +94,7 @@ export const onSizes = {
 
 const ResizeComponent: FC = () => {
   useEffect(() => {
-    let doit: ReturnType<typeof setTimeout>;
-    const resize = () => {
-      clearTimeout(doit);
-      doit = setTimeout(resizeListener, 100);
-    };
+    const resize = delayExecution(resizeListener);
     // initial call
     resizeListener();
     window.addEventListener("resize", resize);

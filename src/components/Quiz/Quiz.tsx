@@ -8,24 +8,26 @@ import Finish from "./Finish/Finish";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
-
 const Quiz: FC = () => {
-  const quiz = useSelector((state: RootState) => state.quiz.quiz);
-  if (quiz.id === 0) {
+  const id = useSelector((state: RootState) => state.quiz.quiz.id);
+  const title = useSelector((state: RootState) => state.quiz.quiz.title);
+  const status = useSelector(
+    (state: RootState) => state.quiz.quiz.studentStatus
+  );
+  const currentQuestion = useSelector(
+    (state: RootState) => state.quiz.quiz.currentQuestion
+  );
+
+  if (id === 0) {
     return null;
   }
 
-  let card: ReactNode = <StartQuiz title={quiz.title} />;
+  let card: ReactNode = <StartQuiz title={title} />;
   let key = `${StudenStatus.NEW}`;
-  if (quiz.studentStatus === StudenStatus.PROGRESS) {
-    card = (
-      <Question
-        question={quiz.questions[quiz.currentQuestion]}
-        index={quiz.currentQuestion}
-      />
-    );
-    key = `${quiz.currentQuestion}`;
-  } else if (quiz.studentStatus === StudenStatus.FINISHED) {
+  if (status === StudenStatus.PROGRESS) {
+    card = <Question />;
+    key = `${currentQuestion}`;
+  } else if (status === StudenStatus.FINISHED) {
     card = <Finish />;
     key = `${StudenStatus.FINISHED}`;
   }

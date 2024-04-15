@@ -1,10 +1,15 @@
-import { memo, useMemo, type FC } from "react";
+import { useMemo, type FC } from "react";
 import classes from "./ProgressBar.module.scss";
-type props = {
-  total: number;
-  current: number;
-};
-const ProgressBar: FC<props> = memo(({ total, current }) => {
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
+
+const ProgressBar: FC = () => {
+  const total = useSelector(
+    (state: RootState) => state.quiz.quiz.questions.length
+  );
+  const current = useSelector(
+    (state: RootState) => state.quiz.quiz.currentQuestion
+  );
   const percentage = (current * 100) / total;
   const gradient = useMemo(() => {
     let g = `linear-gradient(90deg `;
@@ -21,8 +26,7 @@ const ProgressBar: FC<props> = memo(({ total, current }) => {
     g += ")";
     return g;
   }, [total]);
-  console.log('render ProgressBar');
-  
+
   return (
     <div className={classes.container}>
       <div
@@ -40,6 +44,6 @@ const ProgressBar: FC<props> = memo(({ total, current }) => {
       </div>
     </div>
   );
-});
+};
 
 export default ProgressBar;

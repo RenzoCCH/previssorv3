@@ -16,6 +16,7 @@ type InputHandle = {
   setError: (e: string) => void;
 };
 type props = {
+  id: string;
   error?: string;
   touched?: boolean;
   value: string;
@@ -26,6 +27,7 @@ type props = {
 const Input = forwardRef<InputHandle, props>(
   (
     {
+      id,
       error = "",
       touched = false,
       value,
@@ -65,6 +67,7 @@ const Input = forwardRef<InputHandle, props>(
         className={`${classes.input} ${errorMessage && dirty ? classes.invalid : ""}`}
       >
         <FocusInput
+          id={id}
           value={value}
           {...props}
           // @ts-expect-error: Unreachable code error

@@ -5,15 +5,17 @@ import Error from "./components/Error/Error";
 import "./services/multiLangauge";
 import Quiz from "./components/Quiz/Quiz";
 
-function App() {
-  const [quiz, error, loading] = useQuiz("");
-  console.log('rendering App');
-  
+type props = {
+  path: string;
+};
+function App({ path }: props) {
+  const [quiz, error, loading] = useQuiz(path);
+
   return (
     <LoadingProvider appReady={!loading}>
       <MainLayout>
         {error && <Error message={error} />}
-        {quiz && <Quiz/>}
+        {quiz && <Quiz />}
       </MainLayout>
     </LoadingProvider>
   );
