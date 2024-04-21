@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { localStore } from "../../../utils/storage";
 
 const QuestionComponent: FC = () => {
-  const quiz = useSelector((state: RootState) => state.quiz.quiz);
+  const quiz = useSelector((state: RootState) => state.quiz);
   const { currentQuestion: index, questions } = quiz;
 
   useEffect(() => {

@@ -5,10 +5,10 @@ import { RootState } from "../../store";
 
 const ProgressBar: FC = () => {
   const total = useSelector(
-    (state: RootState) => state.quiz.quiz.questions.length
+    (state: RootState) => state.quiz.questions.length
   );
   const current = useSelector(
-    (state: RootState) => state.quiz.quiz.currentQuestion
+    (state: RootState) => state.quiz.currentQuestion
   );
   const percentage = (current * 100) / total;
   const gradient = useMemo(() => {

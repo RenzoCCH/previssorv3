@@ -12,7 +12,7 @@ import { StudenStatus } from "../../../types/enum";
 const Header: FC = () => {
   const { initLoading } = useContext(LoadingContext);
   const studentStatus = useSelector(
-    (state: RootState) => state.quiz.quiz.studentStatus
+    (state: RootState) => state.quiz.studentStatus
   );
   const show = studentStatus !== StudenStatus.NEW;
 

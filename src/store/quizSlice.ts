@@ -3,13 +3,8 @@ import { QuestionMultichoice, QuestionParagrah } from "../types/quiz/question";
 import { QuizTaken } from "../types/quiz/quizTaken";
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-export interface QuizState {
-  quiz: QuizTaken;
-}
-
-const initialState: QuizState = {
-  quiz: {
-    id: 0,
+const initialState: QuizTaken = {
+    id: "0",
     name: "",
     lastName: "",
     questions: [],
@@ -28,7 +23,6 @@ const initialState: QuizState = {
     relativeTotal: null,
     relativeScore: null,
     duration: null,
-  },
 };
 
 export const quizSlice = createSlice({
@@ -36,10 +30,10 @@ export const quizSlice = createSlice({
   initialState,
   reducers: {
     set: (state, action: PayloadAction<QuizTaken>) => {
-      state.quiz = action.payload;
+      state = action.payload;
     },
     start: (state) => {
-      state.quiz.studentStatus = StudenStatus.PROGRESS;
+      state.studentStatus = StudenStatus.PROGRESS;
     },
     updateAnswer: (
       state,
@@ -47,19 +41,19 @@ export const quizSlice = createSlice({
         payload: { index, response },
       }: PayloadAction<{ index: number; response: string }>
     ) => {
-      (state.quiz.questions[index] as QuestionParagrah).response = response;
+      (state.questions[index] as QuestionParagrah).response = response;
     },
     saveAnswer: (
       state,
       { payload: { index } }: PayloadAction<{ index: number }>
     ) => {
       // set question status
-      state.quiz.questions[index].status = QuestionStatus.ANSWERED;
-      if (index + 1 >= state.quiz.questions.length) {
-        state.quiz.studentStatus = StudenStatus.FINISHED;
+      state.questions[index].status = QuestionStatus.ANSWERED;
+      if (index + 1 >= state.questions.length) {
+        state.studentStatus = StudenStatus.FINISHED;
       }
       //quiz, set current question
-      state.quiz.currentQuestion = index + 1;
+      state.currentQuestion = index + 1;
     },
     updateAnswerMultichoice: (
       state,
@@ -72,7 +66,7 @@ export const quizSlice = createSlice({
         isRadio: boolean;
       }>
     ) => {
-      const question = state.quiz.questions[index] as QuestionMultichoice;
+      const question = state.questions[index] as QuestionMultichoice;
       if (isRadio && !value) {
         return state;
       }

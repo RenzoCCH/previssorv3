@@ -9,16 +9,16 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
 const Quiz: FC = () => {
-  const id = useSelector((state: RootState) => state.quiz.quiz.id);
-  const title = useSelector((state: RootState) => state.quiz.quiz.title);
+  const id = useSelector((state: RootState) => state.quiz.id);
+  const title = useSelector((state: RootState) => state.quiz.title);
   const status = useSelector(
-    (state: RootState) => state.quiz.quiz.studentStatus
+    (state: RootState) => state.quiz.studentStatus
   );
   const currentQuestion = useSelector(
-    (state: RootState) => state.quiz.quiz.currentQuestion
+    (state: RootState) => state.quiz.currentQuestion
   );
 
-  if (id === 0) {
+  if (id === "0") {
     return null;
   }
 
