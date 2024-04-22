@@ -52,7 +52,7 @@ const QuestionParagraphComponent: FC<props> = ({
           name="question"
           control={control}
           rules={{
-            required: { value: required, message: t("validation.required") },
+            required: { value: required!, message: t("validation.required") },
             maxLength: {
               value: 3000,
               message: t("validation.max", { max: 3000 }),

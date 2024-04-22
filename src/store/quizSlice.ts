@@ -4,25 +4,26 @@ import { QuizTaken } from "../types/quiz/quizTaken";
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: QuizTaken = {
-    id: "0",
-    name: "",
-    lastName: "",
-    questions: [],
-    score: 0,
-    email: "",
-    studentStatus: StudenStatus.NEW,
-    quizId: 0,
-    studentId: 0,
-    live: false,
-    total: 0,
-    currentQuestion: 0,
-    dateStarted: null,
-    dateCreated: null,
-    dateUpdated: null,
-    dateFinished: null,
-    relativeTotal: null,
-    relativeScore: null,
-    duration: null,
+  id: "0",
+  name: "",
+  lastName: "",
+  questions: [],
+  score: 0,
+  email: "",
+  studentStatus: StudenStatus.NEW,
+  quizId: 0,
+  studentId: 0,
+  live: false,
+  total: 0,
+  currentQuestion: 0,
+  dateStarted: null,
+  dateCreated: null,
+  dateUpdated: null,
+  dateFinished: null,
+  relativeTotal: null,
+  relativeScore: null,
+  duration: null,
+  language: "en",
 };
 
 export const quizSlice = createSlice({
@@ -31,6 +32,7 @@ export const quizSlice = createSlice({
   reducers: {
     set: (state, action: PayloadAction<QuizTaken>) => {
       state = action.payload;
+      return state;
     },
     start: (state) => {
       state.studentStatus = StudenStatus.PROGRESS;

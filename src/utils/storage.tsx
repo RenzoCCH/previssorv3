@@ -5,7 +5,6 @@ export function localRestore(itemKey: string, cache: boolean = true) {
     const dataStored = localStorage.getItem(itemKey);
     if (dataStored) {
       const { data, savedAt } = JSON.parse(dataStored);
-      console.log(savedAt, Date.now(), Date.now() - savedAt);
 
       if (cache && cacheTime > Date.now() - savedAt) {
         obj = data;

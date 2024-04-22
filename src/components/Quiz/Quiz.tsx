@@ -17,6 +17,7 @@ const Quiz: FC = () => {
   const currentQuestion = useSelector(
     (state: RootState) => state.quiz.currentQuestion
   );
+  
 
   if (id === "0") {
     return null;

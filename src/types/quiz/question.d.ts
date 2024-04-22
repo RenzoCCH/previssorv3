@@ -4,11 +4,11 @@ interface QuestionBase {
   id: number;
   question: string;
   isCorrect?: boolean;
-  points: number;
+  points?: number;
   progress?: number;
   time?: number;
-  status: QuestionStatus;
-  required: boolean;
+  status?: QuestionStatus;
+  required?: boolean;
   score?: number;
 }
 
