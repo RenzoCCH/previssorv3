@@ -5,7 +5,8 @@ import { useDispatch } from "react-redux";
 import { set } from "../store/quizSlice";
 
 export default function useQuiz(
-  quizToken: string,
+  quizId: string,
+  quizTakenId: string
 ): [QuizTaken | null, string, boolean] {
   const [quiz, setQuiz] = useState<QuizTaken | null>(null);
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export default function useQuiz(
   useEffect(() => {
     (async () => {
       try {
-        const quizData = await getQuizFromStore(quizToken);
+        const quizData = await getQuizFromStore(quizId, quizTakenId);
         dispatch(set(quizData));
         setQuiz(quizData);
       } catch (e) {

@@ -6,10 +6,11 @@ import "./services/multiLangauge";
 import Quiz from "./components/Quiz/Quiz";
 
 type props = {
-  path: string;
+  quizId: string;
+  quizTakenId: string;
 };
-function App({ path }: props) {
-  const [quiz, error, loading] = useQuiz(path);
+function App({ quizId, quizTakenId }: props) {
+  const [quiz, error, loading] = useQuiz(quizId, quizTakenId);
 
   return (
     <LoadingProvider appReady={!loading}>

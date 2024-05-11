@@ -9,14 +9,14 @@ export interface QuizTaken {
   score?: number;
   email?: string;
   studentStatus: StudenStatus;
-  quizId: number;
-  studentId?: number;
+  quizId: string;
+  studentId?: string;
   live?: boolean;
   total?: number;
   currentQuestion: number;
   dateStarted?: Date | null;
-  dateCreated?: Date | null;
-  dateUpdated?: Date | null;
+  createdAt?: Date | null;
+  updatedAt?: Date | null;
   dateFinished?: Date | null;
   relativeTotal?: number | null;
   relativeScore?: number | null;

@@ -6,13 +6,14 @@ import QuestionMultichoice from "./QuestionMultichoice/QuestionMultichoice";
 import { RootState } from "../../../store";
 import { useSelector } from "react-redux";
 import { localStore } from "../../../utils/storage";
+import { setToken } from "../../../utils/utils";
 
 const QuestionComponent: FC = () => {
   const quiz = useSelector((state: RootState) => state.quiz);
   const { currentQuestion: index, questions } = quiz;
 
   useEffect(() => {
-    localStore(quiz.id, quiz);
+    localStore(setToken(quiz.quizId, quiz.id), quiz);
   }, [quiz]);
 
   const question = questions[index];

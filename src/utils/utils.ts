@@ -23,3 +23,6 @@ export const delayExecutionSync = (fn: Function, delay: number = 100) => {
   clearTimeout(doit);
   doit = setTimeout(fn, delay);
 };
+
+export const setToken = (quizId: string, quizTakenId: string) =>
+  `${quizId}/${quizTakenId}`;

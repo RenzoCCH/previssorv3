@@ -2,6 +2,7 @@ import { QuizTaken } from "../types/quiz/quizTaken";
 import i18next from "i18next";
 import { localRestore } from "../utils/storage";
 import { GraphQLClient, gql } from "graphql-request";
+import { setToken } from "../utils/utils";
 
 interface ResponseError extends Error {
   status?: number;
@@ -10,11 +11,14 @@ interface ResponseError extends Error {
 
 const client = new GraphQLClient(import.meta.env.VITE_GRAPHQL);
 
-export const getQuiz = async (quizToken: string): Promise<QuizTaken> => {
+export const getQuiz = async (
+  quizId: string,
+  quizTakenId: string
+): Promise<QuizTaken> => {
   try {
     const query = gql`
-      query getQuizTakenById($id: ID!) {
-        quizTaken(id: $id) {
+      query getQuizTakenById($quizId: ID!, $quizTakenId: ID!) {
+        quizTaken(quizId: $quizId, id: $quizTakenId) {
           id
           questions {
             id
@@ -37,10 +41,10 @@ export const getQuiz = async (quizToken: string): Promise<QuizTaken> => {
         }
       }
     `;
-    ``;
+
     const { quizTaken } = await client.request<{ quizTaken: QuizTaken }>(
       query,
-      { id: quizToken }
+      { quizId: quizId, quizTakenId: quizTakenId }
     );
     return quizTaken;
   } catch (e) {
@@ -53,33 +57,36 @@ export const getQuiz = async (quizToken: string): Promise<QuizTaken> => {
   }
 };
 
-export const getQuizFromStore = async (quizToken: string) => {
-  let quiz = localRestore(quizToken);
+export const getQuizFromStore = async (quizId: string, quizTakenId: string) => {
+  let quiz = localRestore(setToken(quizId, quizTakenId));
 
   if (!quiz) {
-    quiz = await getQuiz(quizToken);
+    quiz = await getQuiz(quizId, quizTakenId);
   }
+
   return quiz;
 };
 
-// export const getQuiz = async (quizToken: string): Promise<QuizTaken> => {
-//   try {
-//     const url = import.meta.env.VITE_API + quizToken;
-//     const response = await fetch(url);
+export const startQuiz = async (quizTakenId: string) => {
+  try {
+    const query = gql`
+      mutation StartQuizTaken($quizTakenId: ID!) {
+        startQuizTaken(quizTakenId: $quizTakenId) {
+          id
+        }
+      }
+    `;
 
-//     if (!response.ok) {
-//       const err: ResponseError = new Error(response.statusText);
-//       err.status = response.status;
-//       throw err;
-//     }
-
-//     const data = await response.json();
-//     return data.quiz;
-//   } catch (e) {
-//     let message = i18next.t("error.no_server");
-//     if ((e as ResponseError).status === 404) {
-//       message = i18next.t("error.not_found");
-//     }
-//     throw new Error(message);
-//   }
-// };
+    await client.request<{ quizTaken: QuizTaken }>(
+      query,
+      { quizTakenId: quizTakenId }
+    );
+  } catch (e) {
+    let message = i18next.t("error.no_server");
+    const code = (e as ResponseError).response?.errors?.[0].extensions?.code;
+    if (code === "NOT_FOUND") {
+      message = i18next.t("error.not_found");
+    }
+    throw new Error(message);
+  }
+};

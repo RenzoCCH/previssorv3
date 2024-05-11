@@ -34,6 +34,8 @@ const QuestionMultichoice: FC<props> = ({
     }
     setError("");
     dispatch(saveAnswer({ index }));
+    
+
   };
 
   return (
