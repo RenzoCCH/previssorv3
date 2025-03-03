@@ -3,8 +3,8 @@ export const getId = (prefix = "id") => {
   lastId++;
   return `${prefix}${lastId}`;
 };
-export const getPath = () => {
-  const path = window.location.pathname.split("/").filter((p) => !!p);
+export const getPath = (): string[] => {
+  const path = window.location.pathname.split("/").filter(Boolean);
   return path;
 };
 
