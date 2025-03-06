@@ -1,4 +1,4 @@
-import { ReactElement, type ElementType, type FC } from "react";
+import { type ElementType, type FC } from "react";
 import FadeInOut from "../../animations/FadeInOut";
 import { inputSize } from "../FocusInput/FocusInput";
 import classes from "./ErrorMessage.module.scss";

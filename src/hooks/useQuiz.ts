@@ -6,7 +6,7 @@ import { set } from "../store/quizSlice";
 
 export default function useQuiz(
   quizId: string,
-  quizTakenId: string
+  quizTakenId: string,
 ): [QuizTaken | null, string, boolean] {
   const [quiz, setQuiz] = useState<QuizTaken | null>(null);
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export default function useQuiz(
   useEffect(() => {
     (async () => {
       try {
-        const quizData = await getQuizFromStore(quizId, quizTakenId);
+        const quizData: QuizTaken = await getQuizFromStore(quizId, quizTakenId);
         dispatch(set(quizData));
         setQuiz(quizData);
       } catch (e) {

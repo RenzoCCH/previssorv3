@@ -5,12 +5,11 @@ import {
   useRef,
   useEffect,
 } from "react";
-import { useTranslation } from "react-i18next";
 import { sizes } from "../../ResizeComponent/ResizeComponent";
-import { getId } from "../../../utils/utils";
 import ContentEditableClass from "../ContentEditableClass";
 import classes from "./FocusInput.module.scss";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export enum inputSize {
   lg = "input-lg",
   md = "",
@@ -48,10 +47,10 @@ const FocusInput = forwardRef<InputHandle, props>(
       type = "text",
       ...props
     },
-    ref
+    ref,
   ) => {
     const input = useRef<HTMLInputElement | HTMLTextAreaElement>(null);
-    const { t } = useTranslation();
+    // const { t } = useTranslation();
 
     useEffect(() => {
       if (focus && input?.current?.focus && sizes.minSm()) {
@@ -70,7 +69,7 @@ const FocusInput = forwardRef<InputHandle, props>(
           }
         },
       }),
-      []
+      [],
     );
     const isFilled = !!value;
 
@@ -106,7 +105,7 @@ const FocusInput = forwardRef<InputHandle, props>(
         {!noBorder && <span className={classes.border} />}
       </span>
     );
-  }
+  },
 );
 
 export default FocusInput;

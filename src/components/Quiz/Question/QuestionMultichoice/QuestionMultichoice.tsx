@@ -34,8 +34,6 @@ const QuestionMultichoice: FC<props> = ({
     }
     setError("");
     dispatch(saveAnswer({ index }));
-    
-
   };
 
   return (
@@ -49,7 +47,7 @@ const QuestionMultichoice: FC<props> = ({
           <li key={option.id}>
             <CheckBox
               id={option.id + "_option"}
-              checked={option.checked}
+              checked={option.checked ?? false}
               label={option.option}
               type={isRadio ? "radio" : "checkbox"}
               onChange={() => {}}
@@ -63,7 +61,7 @@ const QuestionMultichoice: FC<props> = ({
                     optionId: option.id,
                     value: !option.checked,
                     isRadio: isRadio,
-                  })
+                  }),
                 );
               }}
             />

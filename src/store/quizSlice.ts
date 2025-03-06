@@ -11,14 +11,14 @@ const initialState: QuizTaken = {
   score: 0,
   email: "",
   studentStatus: StudenStatus.NEW,
-  quizId: 0,
-  studentId: 0,
+  quizId: "0",
+  studentId: "0",
   live: false,
   total: 0,
   currentQuestion: 0,
   dateStarted: null,
-  dateCreated: null,
-  dateUpdated: null,
+  createdAt: null,
+  updatedAt: null,
   dateFinished: null,
   relativeTotal: null,
   relativeScore: null,
@@ -41,13 +41,13 @@ export const quizSlice = createSlice({
       state,
       {
         payload: { index, response },
-      }: PayloadAction<{ index: number; response: string }>
+      }: PayloadAction<{ index: number; response: string }>,
     ) => {
       (state.questions[index] as QuestionParagrah).response = response;
     },
     saveAnswer: (
       state,
-      { payload: { index } }: PayloadAction<{ index: number }>
+      { payload: { index } }: PayloadAction<{ index: number }>,
     ) => {
       // set question status
       state.questions[index].status = QuestionStatus.ANSWERED;
@@ -66,7 +66,7 @@ export const quizSlice = createSlice({
         optionId: number;
         value: boolean;
         isRadio: boolean;
-      }>
+      }>,
     ) => {
       const question = state.questions[index] as QuestionMultichoice;
       if (isRadio && !value) {

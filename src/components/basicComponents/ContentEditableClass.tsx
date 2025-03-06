@@ -95,7 +95,7 @@ export default class ContentEditable extends React.Component<Props> {
         contentEditable: !this.props.disabled,
         dangerouslySetInnerHTML: { __html: html },
       },
-      this.props.children
+      this.props.children,
     );
   }
   componentDidMount() {
@@ -143,6 +143,7 @@ export default class ContentEditable extends React.Component<Props> {
     replaceCaret(el);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   emitChange = (originalEvt: React.SyntheticEvent<any>) => {
     const el = this.getEl();
     if (!el) return;

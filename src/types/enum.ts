@@ -10,7 +10,7 @@ export enum QuestionType {
 }
 
 export enum QuestionStatus {
-  NOT_VIEWED = "NOT",
+  NOT_VIEWED = "NOT_VIEWED",
   VIEWED = "VIEWED",
   SKIPPED = "SKIPPED",
   ANSWERED = "ANSWERED",

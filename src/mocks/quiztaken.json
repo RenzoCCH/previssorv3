@@ -1,0 +1,186 @@
+{
+  "id": "1",
+  "name": "John",
+  "lastName": "Doe",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital of France?",
+      "type": "MULTICHOICE",
+      "options": [
+        { "id": 1, "option": "Paris", "isCorrect": true },
+        { "id": 2, "option": "London", "isCorrect": false },
+        { "id": 3, "option": "Berlin", "isCorrect": false }
+      ],
+      "isCorrect": null,
+      "points": 10,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 2,
+      "question": "Explain the theory of relativity.",
+      "type": "PARAGRAPH",
+      "response": "",
+      "isCorrect": null,
+      "points": 20,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 3,
+      "question": "What is 2 + 2?",
+      "type": "MULTICHOICE",
+      "options": [
+        { "id": 1, "option": "3", "isCorrect": false },
+        { "id": 2, "option": "4", "isCorrect": true },
+        { "id": 3, "option": "5", "isCorrect": false }
+      ],
+      "isCorrect": null,
+      "points": 5,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 4,
+      "question": "Describe the process of photosynthesis.",
+      "type": "PARAGRAPH",
+      "response": "",
+      "isCorrect": null,
+      "points": 15,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 5,
+      "question": "Which planet is known as the Red Planet?",
+      "type": "MULTICHOICE",
+      "options": [
+        { "id": 1, "option": "Earth", "isCorrect": false },
+        { "id": 2, "option": "Mars", "isCorrect": true },
+        { "id": 3, "option": "Jupiter", "isCorrect": false }
+      ],
+      "isCorrect": null,
+      "points": 10,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 6,
+      "question": "What is the speed of light?",
+      "type": "MULTICHOICE",
+      "options": [
+        { "id": 1, "option": "299,792 km/s", "isCorrect": true },
+        { "id": 2, "option": "150,000 km/s", "isCorrect": false },
+        { "id": 3, "option": "1,000 km/s", "isCorrect": false }
+      ],
+      "isCorrect": null,
+      "points": 10,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 7,
+      "question": "What is the main ingredient in guacamole?",
+      "type": "MULTICHOICE",
+      "options": [
+        { "id": 1, "option": "Tomato", "isCorrect": false },
+        { "id": 2, "option": "Onion", "isCorrect": false },
+        { "id": 3, "option": "Avocado", "isCorrect": true }
+      ],
+      "isCorrect": null,
+      "points": 10,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 8,
+      "question": "What is the tallest mountain in the world?",
+      "type": "MULTICHOICE",
+      "options": [
+        { "id": 1, "option": "K2", "isCorrect": false },
+        { "id": 2, "option": "Kangchenjunga", "isCorrect": false },
+        { "id": 3, "option": "Mount Everest", "isCorrect": true }
+      ],
+      "isCorrect": null,
+      "points": 10,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 9,
+      "question": "What is the smallest unit of life?",
+      "type": "MULTICHOICE",
+      "options": [
+        { "id": 1, "option": "Atom", "isCorrect": false },
+        { "id": 2, "option": "Molecule", "isCorrect": false },
+        { "id": 3, "option": "Cell", "isCorrect": true }
+      ],
+      "isCorrect": null,
+      "points": 10,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    },
+    {
+      "id": 10,
+      "question": "Who painted the Mona Lisa?",
+      "type": "MULTICHOICE",
+      "options": [
+        { "id": 1, "option": "Vincent van Gogh", "isCorrect": false },
+        { "id": 2, "option": "Pablo Picasso", "isCorrect": false },
+        { "id": 3, "option": "Leonardo da Vinci", "isCorrect": true }
+      ],
+      "isCorrect": null,
+      "points": 10,
+      "progress": 0,
+      "time": 0,
+      "status": "NOT_VIEWED",
+      "required": true,
+      "score": 0
+    }
+  ],
+  "score": 0,
+  "email": "john.doe@example.com",
+  "studentStatus": "PROGRESS",
+  "quizId": "quiz123",
+  "studentId": "student123",
+  "live": true,
+  "total": 60,
+  "currentQuestion": 0,
+  "dateStarted": "2023-10-01T10:00:00Z",
+  "createdAt": "2023-10-01T09:00:00Z",
+  "updatedAt": "2023-10-01T11:00:00Z",
+  "dateFinished": null,
+  "relativeTotal": 60,
+  "relativeScore": 0,
+  "duration": 0,
+  "title": "Sample Quiz",
+  "language": "en"
+}

@@ -11,7 +11,6 @@ type props = {
 };
 function App({ quizId, quizTakenId }: props) {
   const [quiz, error, loading] = useQuiz(quizId, quizTakenId);
-  console.log("quizId", "quizTakenId", quizId, quizTakenId);
 
   return (
     <LoadingProvider appReady={!loading}>
