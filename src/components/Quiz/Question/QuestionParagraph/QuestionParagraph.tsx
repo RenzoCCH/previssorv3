@@ -69,12 +69,13 @@ const QuestionParagraphComponent: FC<props> = ({
 
                 field.onChange(e);
               }}
+              focus
               contentEditable
               error={questionError && questionError.message}
               size={inputSize.lg}
             />
           )}
-        ></Controller>
+        />
       </label>
       <Button classList={["btn-lg"]} id="btn">
         {t(isLast ? "finish" : "next")}

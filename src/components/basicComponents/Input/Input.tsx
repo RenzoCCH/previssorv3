@@ -5,7 +5,7 @@ import {
   useEffect,
   useImperativeHandle,
   useRef,
-  useState
+  useState,
 } from "react";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import FocusInput, { inputSize } from "../FocusInput/FocusInput";
@@ -22,6 +22,7 @@ type props = {
   value: string;
   onBlur?: (e: FocusEvent) => void;
   size?: inputSize;
+  focus?: boolean;
 } & ComponentPropsWithoutRef<"input" | "textarea">;
 
 const Input = forwardRef<InputHandle, props>(
@@ -35,7 +36,7 @@ const Input = forwardRef<InputHandle, props>(
       size = inputSize.md,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [dirty, setDirty] = useState<boolean>(false);
     const [stateError, setStateError] = useState<string>("");
@@ -52,7 +53,7 @@ const Input = forwardRef<InputHandle, props>(
           setDirty(true);
         },
       }),
-      []
+      [],
     );
     useEffect(() => {
       if (touched) {
@@ -87,7 +88,7 @@ const Input = forwardRef<InputHandle, props>(
         />
       </span>
     );
-  }
+  },
 );
 
 export default Input;

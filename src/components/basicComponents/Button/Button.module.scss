@@ -19,6 +19,9 @@
   &:focus-within {
     background: $primaryColorD;
   }
+  &:focus-visible {
+    outline: 4px solid $gray;
+  }
   &:active {
     background: $buttonColorPressed;
     box-shadow: 0px 0px 1px 1px $shadowColor;

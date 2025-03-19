@@ -16,7 +16,6 @@ const Button: FC<props> = ({ children, classList = [], ...props }) => {
   let className = "";
   for (const c of classList) {
     className += ` ${classes[c]}`;
-    className += ` ${classes[c]}`;
   }
   return (
     <button className={`${classes.btn} ${className}`} {...props}>
